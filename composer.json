@@ -1,4 +1,6 @@
 {
+    "name": "lammens/jarvis",
+    "description": "Project template for Resilient distributions inside DrupalVM.",
     "require-dev": {
         "geerlingguy/drupal-vm": "^4.7"
     }
