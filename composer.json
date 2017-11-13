@@ -1,6 +1,7 @@
 {
     "name": "lammens/jarvis",
     "description": "Project template for Resilient distributions inside DrupalVM.",
+    "type": "project",
     "license": "MIT",
     "require-dev": {
         "geerlingguy/drupal-vm": "^4.7"
