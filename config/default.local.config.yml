@@ -1,0 +1,6 @@
+# Environment
+vagrant_hostname: project.dev
+vagrant_machine_name: project
+
+# Project
+drupal_site_name: "Project"

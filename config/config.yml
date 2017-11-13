@@ -1,0 +1,24 @@
+# Environment
+vagrant_synced_folders:
+  - local_path: .
+    destination: /var/www/app
+    type: nfs
+    create: true
+
+# Configure how to build Drupal
+drupal_build_makefile: false
+drupal_build_composer: false
+drupal_build_composer_project: true
+
+drupal_composer_project_package: "lammensj/resilient-project:8.x-dev"
+drupal_composer_project_options: "--stability dev --no-interaction"
+drupal_composer_install_dir: "/var/www/app/htdocs"
+drupal_core_path: "{{ drupal_composer_install_dir }}/web"
+
+drupal_install_profile: resilient
+configure_drush_aliases: false
+
+# Extras
+installed_extras:
+  - drush
+  - drupalconsole
