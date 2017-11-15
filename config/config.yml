@@ -1,4 +1,5 @@
 # Environment
+vagrant_box: geerlingguy/debian9
 vagrant_synced_folders:
   - local_path: .
     destination: /var/www/app
