@@ -20,5 +20,4 @@ configure_drush_aliases: false
 
 # Extras
 installed_extras:
-  - drush
   - drupalconsole
