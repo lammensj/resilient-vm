@@ -12,6 +12,7 @@ drupal_build_composer_project: true
 
 drupal_composer_project_package: "lammensj/resilient-project:8.x-dev"
 drupal_composer_project_options: "--stability dev --no-interaction"
+drupal_composer_dependencies: []
 drupal_composer_install_dir: "/var/www/app/htdocs"
 drupal_core_path: "{{ drupal_composer_install_dir }}/web"
 
