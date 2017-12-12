@@ -1,5 +1,5 @@
 {
-    "name": "lammensj/drupal-project",
+    "name": "lammensj/resilient-vm",
     "description": "Project template for Resilient distributions inside DrupalVM.",
     "type": "project",
     "license": "MIT",
