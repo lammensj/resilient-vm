@@ -21,5 +21,39 @@ drupal_install_site: false # Pass on via CLI arguments
 composer_add_project_to_path: true
 composer_project_path: '{{ drupal_composer_install_dir }}/vendor/bin'
 
+# PHP config
+php_xdebug_default_enable: 1
+php_xdebug_idekey: PHPSTORM
+php_xdebug_remote_autostart: 1
+php_xdebug_remote_log: ''
+
 # Extras
-installed_extras: []
+installed_extras:
+  - mailhog
+  - pimpmylog
+  - xdebug
+  - nodejs
+
+nodejs_npm_global_packages:
+  - yarn
+  - gulp
+
+# Firewall
+firewall_allowed_tcp_ports:
+  - "22"
+  - "25"
+  - "80"
+  - "81"
+  - "443"
+  - "3000"
+  - "3001"
+  - "4444"
+  - "8025"
+  - "8080"
+  - "8443"
+  - "8983"
+  - "9200"
+
+# Post provisioning scripts:
+post_provision_tasks_dir:
+  - '{{ config_dir }}/scripts/post/*'

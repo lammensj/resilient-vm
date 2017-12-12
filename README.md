@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/lammensj/drupal-project/master/assets/images/logo.jpg"></p>
+<p align="center"><img width=50% src="https://raw.githubusercontent.com/lammensj/resilient-vm/master/assets/images/logo.jpg"></p>
 
 # [Project name]
 
@@ -6,11 +6,11 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a Drupal 8 project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-All you need is [Composer](https://getcomposer.org/) and [Vagrant](https://www.vagrantup.com/) installed on your machine. Every other service will be downloaded inside the virtual machine.
+All you need is [Composer](https://getcomposer.org/) and [Vagrant](https://www.vagrantup.com/) installed on your laptop or pc. Every other service will be downloaded inside the virtual machine.
 
 ```
 composer install
@@ -19,13 +19,11 @@ composer install
 ### Installing
 
 Default settings regarding the VM can be found in `./config`. The following files are present:
- - `config.yml`: configuration independent of the environment or project (eg. Apache2 vhosts)
- - `default.local.config.yml`: configuration about the project (eg. name, extra php packages etc.)
- - `default.vagrant.config.yml`: configuration about the environment (eg. xdebug, mailhog, grumphp etc.)
+ - `config.yml`: configuration independent of the project (eg. synced folders, ports, composer etc.)
+ - `default.local.config.yml`: configuration about the project (eg. name, credentials etc.)
 
 ```
 $ cp ./config/default.local.config.yml ./config/local.config.yml
-$ cp ./config/default.vagrant.config.yml ./config/vagrant.config.yml
 ```
 
 #### A. Starting fresh
@@ -58,10 +56,6 @@ This will download a [Vagrant](https://www.vagrantup.com/) machine (Debian9) and
 ### Drupal
 - Username: `admin` (unless overridden by `drupal_account_name`)
 - Password: the default is `admin` but please change this when going to production (unless overridden by `drupal_account_pass`)
-
-## Deployment
-
-TBD.
 
 ## Built With
 
