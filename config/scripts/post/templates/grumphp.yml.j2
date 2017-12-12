@@ -1,0 +1,74 @@
+parameters:
+    ascii:
+        failed: ~
+        succeeded: ~
+    git_dir: /vagrant
+    hooks_preset: vagrant
+    tasks:
+        composer: ./htdocs/composer.json
+        phpcs:
+            standard: Drupal
+            ignore_patterns:
+                - cfg/
+                - ./htdocs/web/libraries/
+                - ./htdocs/web/lib/
+                - ./htdocs/web/core/
+                - ./htdocs/modules/contrib/
+            triggered_by:
+                - php
+                - module
+                - inc
+                - install
+                - test
+                - profile
+                - theme
+                - twig
+        git_commit_message:
+            matchers:
+                - /{{ jira_code }}-([0-9]*)/
+            case_insensitive: false
+        yamllint: ~
+        jsonlint:
+            detect_key_conflicts: true
+        xmllint: ~
+        securitychecker:
+            lockfile: ./htdocs/composer.lock
+            run_always: false
+        git_blacklist:
+            keywords:
+                # PHP
+                - " die("
+                - " var_dump("
+                - " print_r("
+                - " print("
+                - " dump("
+                - " debug_backtrace("
+                - " file_put_contents("
+                - " exit;"
+                - " echo "
+                # JS
+                - " console.log("
+                # Drupal specific
+                - " dpm("
+                - " dsm("
+                - " dpr("
+                - " dpq("
+                - " dprint_r("
+                - " db_queryd("
+                - " kpr("
+                - " kprint_r("
+                - " dd("
+                - " ddebug_backtrace("
+                - " drupal_debug("
+                - " devel_render("
+                - " kint("
+            triggered_by:
+                - php
+                - module
+                - inc
+                - install
+                - test
+                - profile
+                - theme
+                - js
+                - twig

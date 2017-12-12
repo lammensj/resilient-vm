@@ -5,21 +5,21 @@ vagrant_synced_folders:
     destination: /var/www/app
     type: nfs
     create: true
+    mount_options: ['nolock', 'vers=3', 'tcp', 'fsc', 'actimeo=1']
 
 # Configure how to build Drupal
 drupal_build_makefile: false
-drupal_build_composer: false
-drupal_build_composer_project: true
-
 drupal_composer_project_package: "lammensj/resilient-project:8.x-dev"
 drupal_composer_project_options: "--stability dev --no-interaction"
-drupal_composer_dependencies: []
 drupal_composer_install_dir: "/var/www/app/htdocs"
+drupal_composer_dependencies: []
 drupal_core_path: "{{ drupal_composer_install_dir }}/web"
-
-drupal_install_profile: resilient
 configure_drush_aliases: false
+drupal_install_site: false # Pass on via CLI arguments
+
+# Add project composer to global PATH
+composer_add_project_to_path: true
+composer_project_path: '{{ drupal_composer_install_dir }}/vendor/bin'
 
 # Extras
-installed_extras:
-  - drupalconsole
+installed_extras: []

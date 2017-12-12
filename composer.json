@@ -1,9 +1,15 @@
 {
-    "name": "lammensj/jarvis",
+    "name": "lammensj/drupal-project",
     "description": "Project template for Resilient distributions inside DrupalVM.",
     "type": "project",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lammensj/drupal-vm"
+        }
+    ],
     "require-dev": {
-        "geerlingguy/drupal-vm": "^4.7"
+        "geerlingguy/drupal-vm": "dev-master"
     }
 }

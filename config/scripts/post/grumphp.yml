@@ -1,0 +1,31 @@
+---
+- name: Copy Grumphp config.
+  template:
+    src: "{{ config_dir }}/scripts/post/templates/grumphp.yml.j2"
+    dest: "{{ drupal_composer_install_dir }}/../grumphp.yml"
+  tags: ['grumphp']
+
+- name: Download Grumphp and related packages.
+  composer:
+    command: install
+    working_dir: "{{ drupal_composer_install_dir }}"
+    no_dev: false
+  become: yes
+  become_user: "{{ composer_home_owner }}"
+  tags: ['grumphp']
+
+- name: Configure PhpCS.
+  command: '{{ drupal_composer_install_dir }}/vendor/bin/phpcs --config-set installed_paths {{ drupal_composer_install_dir }}/vendor/drupal/coder/coder_sniffer'
+  become: yes
+  become_user: "{{ composer_home_owner }}"
+  tags: ['grumphp']
+
+- name: Set SSH home directory.
+  lineinfile:
+    dest: "/home/{{ drupalvm_user }}/.profile"
+    state: present
+    create: yes
+    regexp: "^SSH_HOME="
+    line: "SSH_HOME={{ drupal_composer_install_dir }}/../ && [ -e $SSH_HOME ] && cd $SSH_HOME"
+  become: no
+  tags: ['grumphp']

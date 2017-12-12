@@ -1,13 +1,36 @@
-# Packages
+# PHP config
 php_xdebug_default_enable: 1
 php_xdebug_idekey: PHPSTORM
 php_xdebug_remote_autostart: 1
+php_xdebug_remote_log: ''
 
 # Extras
 installed_extras:
-  - adminer
   - mailhog
   - pimpmylog
-  - drush
-  - drupalconsole
   - xdebug
+  - nodejs
+
+nodejs_npm_global_packages:
+  - yarn
+  - gulp
+
+# Firewall
+firewall_allowed_tcp_ports:
+  - "22"
+  - "25"
+  - "80"
+  - "81"
+  - "443"
+  - "3000"
+  - "3001"
+  - "4444"
+  - "8025"
+  - "8080"
+  - "8443"
+  - "8983"
+  - "9200"
+
+# Post provisioning scripts:
+post_provision_tasks_dir:
+  - '{{ config_dir }}/scripts/post/*'
