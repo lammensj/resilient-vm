@@ -4,25 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "92f643aea2053199b1e780e98d3cfaa1",
+    "content-hash": "8f85ceacbf69d75c6ab0b74786acac57",
     "packages": [],
     "packages-dev": [
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "4.7.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "aedfc16db569a49c9a0c358212d7029483385b0d"
+                "url": "https://github.com/lammensj/drupal-vm.git",
+                "reference": "bd23256f6dbb02d7765a45c7ae9bdc7ccba219f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/aedfc16db569a49c9a0c358212d7029483385b0d",
-                "reference": "aedfc16db569a49c9a0c358212d7029483385b0d",
+                "url": "https://api.github.com/repos/lammensj/drupal-vm/zipball/bd23256f6dbb02d7765a45c7ae9bdc7ccba219f6",
+                "reference": "bd23256f6dbb02d7765a45c7ae9bdc7ccba219f6",
                 "shasum": ""
             },
             "type": "vm",
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "run-tests": [
+                    "./tests/run-tests.sh"
+                ],
+                "docker-bake": [
+                    "./provisioning/docker/bake.sh"
+                ],
+                "docker-save-image": [
+                    "./provisioning/docker/save-image.sh"
+                ],
+                "docker-load-image": [
+                    "./provisioning/docker/load-image.sh"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -44,12 +57,19 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2017-10-07T04:35:10+00:00"
+            "support": {
+                "issues": "https://github.com/geerlingguy/drupal-vm/issues",
+                "source": "https://github.com/geerlingguy/drupal-vm",
+                "docs": "http://docs.drupalvm.com"
+            },
+            "time": "2017-12-07T08:17:27+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "geerlingguy/drupal-vm": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
