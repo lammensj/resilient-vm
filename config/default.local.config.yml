@@ -1,5 +1,5 @@
 # Environment
-vagrant_hostname: project.dev.example.com
+vagrant_hostname: project.dev.resilient.com
 vagrant_machine_name: project
 
 # Project settings

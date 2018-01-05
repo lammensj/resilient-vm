@@ -13,7 +13,7 @@ These instructions will get you a Drupal 8 project up and running on your local 
 All you need is [Composer](https://getcomposer.org/) and [Vagrant](https://www.vagrantup.com/) installed on your laptop or pc. Every other service will be downloaded inside the virtual machine.
 
 ```
-composer install
+$ composer install
 ```
 
 ### Installing
@@ -25,6 +25,8 @@ Default settings regarding the VM can be found in `./config`. The following file
 ```
 $ cp ./config/default.local.config.yml ./config/local.config.yml
 ```
+
+Adjust the lines in `./config/local.config.yml` which are not commented to match your project.
 
 #### A. Starting fresh
 
@@ -45,12 +47,12 @@ This will download a [Vagrant](https://www.vagrantup.com/) machine (Debian9) and
 
 ## Credentials
 
-### MySQL
+### Connecting to MySQL
 - MySQL Host: `127.0.0.1`
 - Username: `drupal` (unless overridden by `drupal_db_user`)
 - Password: `drupal` (unless overridden by `drupal_db_password`)
 - SSH Host: `192.168.88.88` (unless overridden by `vagrant_ip`)
-- SSH User: `vagrant` (unless overriden by `vagrant_user`)
+- SSH User: `vagrant` (unless overridden by `vagrant_user`)
 - SSH Key: (browse to your `~/.vagrant.d/` folder and choose `insecure_private_key`)
 
 ### Drupal
@@ -68,11 +70,11 @@ This will download a [Vagrant](https://www.vagrantup.com/) machine (Debian9) and
 ### Config management
 
 Hence the fact that we're using [Config Split](https://www.drupal.org/project/config_split) to break apart certain config (eg. only enable Devel in development) we must use the drush commands provided by that module. Use `$ drush csex -y` to export and `$ drush csim -y` to import configuration files.
-You can enable development config by adding `$config['config_split.config_split.dev']['status'] = TRUE;` in `settings.local.php`.
+You can enable development config by adding `$config['config_split.config_split.dev']['status'] = TRUE;` in `./htdocs/web/sites/default/settings.local.php`.
 
 ### Versioning
 
-We use [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) for versioning. For the versions available, see the [tags on this repository](https://github.com/digiti/crunchy_christmas/tags).
+We use [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) for versioning.
 
 ## Authors
 

@@ -1,4 +1,4 @@
 .vagrant
 vendor
 config/local.config.yml
-config/vagrant.config.yml
+grumphp.yml
