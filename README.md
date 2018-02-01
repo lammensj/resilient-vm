@@ -2,7 +2,7 @@
 
 # [Project name]
 
-[Project description]]
+[Project description]
 
 ## Getting Started
 
